@@ -5,29 +5,37 @@ const buttons = document.querySelectorAll("#buttons-container button");
 /* Regra de Negócio */
 class Calculator {
   constructor(previousOperationText, currentOperationText) {
-    /* valores já impressos na tela */
+    // valores já impressos na tela
     this.previousOperationText = previousOperationText;
     this.currentOperationText = currentOperationText;
 
-    /* valor que o usuário está digitando neste momento */
+    // valor que o usuário está digitando neste momento
     this.currentOperation = "";
   }
 
   /* métodos */
   addDigitToScreen(digit) {
+    // check if current operation already has a dot
     if (digit === "." && this.currentOperationText.innerText.includes(".")) {
       return;
     }
 
     this.currentOperation = digit;
-
     this.updateScreen();
   }
 
+  // process all calculator operations
+  processOperations(operation) {
+    console.log(operation);
+  }
+
+  // change values of the calculator screen
   updateScreen() {
     this.currentOperationText.innerText += this.currentOperation;
   }
 }
+
+/* Instância da classe */
 const calc = new Calculator(previousOperationText, currentOperationText);
 
 /* Eventos de funcionamento da calculadora */
@@ -38,7 +46,7 @@ buttons.forEach(btn => {
     if (+value >= 0 || value === ".") {
       calc.addDigitToScreen(value);
     } else {
-      console.log("Operação: " + value);
+      calc.processOperations(value);
     }
   });
 });
