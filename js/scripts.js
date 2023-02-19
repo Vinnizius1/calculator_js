@@ -28,32 +28,36 @@ class Calculator {
   processOperations(operation) {
     // get current and previous values
     let operationValue;
-    let previous = +this.previousOperationText.innerText;
-    let current = +this.currentOperationText.innerText;
+    const previous = +this.previousOperationText.innerText;
+    const current = +this.currentOperationText.innerText;
 
     switch (operation) {
       case "+":
+        operationValue = previous + current;
+        this.updateScreen(operationValue, operation, current, previous);
         break;
       default:
         return;
     }
   }
 
-  // change values of the calculator screen
+  // change values of the calculator screen // 36:44
   updateScreen(
     operationValue = null,
     operation = null,
     current = null,
     previous = null
   ) {
-    this.currentOperationText.innerText += this.currentOperation;
+    if (operationValue === null) {
+      this.currentOperationText.innerText += this.currentOperation;
+    }
   }
 }
 
 /* Instância da classe */
 const calc = new Calculator(previousOperationText, currentOperationText);
 
-/* Eventos de funcionamento da calculadora */
+/* Eventos no DOM para funcionamento da calculadora */
 buttons.forEach(btn => {
   btn.addEventListener("click", e => {
     const value = e.target.innerText;
