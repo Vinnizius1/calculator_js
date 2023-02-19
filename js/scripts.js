@@ -40,7 +40,12 @@ class Calculator {
   }
 
   // change values of the calculator screen
-  updateScreen() {
+  updateScreen(
+    operationValue = null,
+    operation = null,
+    current = null,
+    previous = null
+  ) {
     this.currentOperationText.innerText += this.currentOperation;
   }
 }
