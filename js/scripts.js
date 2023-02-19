@@ -15,7 +15,13 @@ class Calculator {
 
   /* métodos */
   addDigitToScreen(digit) {
-    console.log(digit);
+    this.currentOperation = digit;
+
+    this.updateScreen();
+  }
+
+  updateScreen() {
+    this.currentOperationText.innerText += this.currentOperation;
   }
 }
 const calc = new Calculator(previousOperationText, currentOperationText);
