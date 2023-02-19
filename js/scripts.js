@@ -50,11 +50,15 @@ class Calculator {
   ) {
     if (operationValue === null) {
       this.currentOperationText.innerText += this.currentOperation;
-    }
+    } else {
+      // check if value is zero, if it is just add current value
+      if (previous === 0) {
+        operationValue = current;
+      }
 
-    // check if value is zero, if it is just add current value
-    if (previous === 0) {
-      operationValue = current;
+      // add current value to previous
+      this.previousOperationText.innerText = `${operationValue} ${operation}`;
+      this.currentOperationText.innerText = "";
     }
   }
 }
