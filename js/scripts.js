@@ -12,6 +12,11 @@ class Calculator {
     /* valor que o usuário está digitando neste momento */
     this.currentOperation = "";
   }
+
+  /* métodos */
+  addDigitToScreen(digit) {
+    console.log(digit);
+  }
 }
 const calc = new Calculator(previousOperationText, currentOperationText);
 
@@ -21,7 +26,7 @@ buttons.forEach(btn => {
     const value = e.target.innerText;
 
     if (+value >= 0 || value === ".") {
-      console.log("Número ou ponto: " + value);
+      calc.addDigitToScreen(value);
     } else {
       console.log("Operação: " + value);
     }
