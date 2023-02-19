@@ -51,6 +51,11 @@ class Calculator {
     if (operationValue === null) {
       this.currentOperationText.innerText += this.currentOperation;
     }
+
+    // check if value is zero, if it is just add current value
+    if (previous === 0) {
+      operationValue = current;
+    }
   }
 }
 
