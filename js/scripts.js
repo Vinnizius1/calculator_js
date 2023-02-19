@@ -3,7 +3,12 @@ const currentOperationText = document.querySelector("#current-operation");
 const buttons = document.querySelectorAll("#buttons-container button");
 
 /* Regra de Negócio */
-class Calculator {}
+class Calculator {
+  constructor(previousOperationText, currentOperationText) {
+    this.previousOperationText = previousOperationText;
+    this.currentOperationText = currentOperationText;
+  }
+}
 
 /* Eventos de funcionamento da calculadora */
 buttons.forEach(btn => {
