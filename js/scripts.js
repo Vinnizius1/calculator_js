@@ -26,7 +26,17 @@ class Calculator {
 
   // process all calculator operations
   processOperations(operation) {
-    console.log(operation);
+    // get current and previous values
+    let operationValue;
+    let previous = +this.previousOperationText.innerText;
+    let current = +this.currentOperationText.innerText;
+
+    switch (operation) {
+      case "+":
+        break;
+      default:
+        return;
+    }
   }
 
   // change values of the calculator screen
