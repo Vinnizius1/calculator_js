@@ -5,10 +5,15 @@ const buttons = document.querySelectorAll("#buttons-container button");
 /* Regra de Negócio */
 class Calculator {
   constructor(previousOperationText, currentOperationText) {
+    /* valores já impressos na tela */
     this.previousOperationText = previousOperationText;
     this.currentOperationText = currentOperationText;
+
+    /* valor que o usuário está digitando neste momento */
+    this.currentOperation = "";
   }
 }
+const calc = new Calculator(previousOperationText, currentOperationText);
 
 /* Eventos de funcionamento da calculadora */
 buttons.forEach(btn => {
