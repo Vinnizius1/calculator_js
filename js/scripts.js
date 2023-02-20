@@ -26,9 +26,8 @@ class Calculator {
 
   // process all calculator operations
   processOperations(operation) {
-    // get current and previous values
     let operationValue;
-    const previous = +this.previousOperationText.innerText;
+    const previous = +this.previousOperationText.innerText.split(" ")[0];
     const current = +this.currentOperationText.innerText;
 
     switch (operation) {
@@ -41,7 +40,7 @@ class Calculator {
     }
   }
 
-  // change values of the calculator screen // 36:44
+  // change values of the calculator screen
   updateScreen(
     operationValue = null,
     operation = null,
@@ -51,7 +50,7 @@ class Calculator {
     if (operationValue === null) {
       this.currentOperationText.innerText += this.currentOperation;
     } else {
-      // check if value is zero, if it is just add current value
+      // check if value is "zero", if it is just add current value
       if (previous === 0) {
         operationValue = current;
       }
