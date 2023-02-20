@@ -90,6 +90,10 @@ class Calculator {
     if (!mathOperations.includes(operation)) {
       return;
     }
+
+    // método slice para pegar e remover o último caractere - operador - e colocar um novo operador
+    this.previousOperationText.innerText =
+      this.previousOperationText.innerText.slice(0, -1) + operation;
   }
 }
 
