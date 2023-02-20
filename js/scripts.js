@@ -27,7 +27,7 @@ class Calculator {
   // process all calculator operations
   processOperations(operation) {
     // check if current is empty:
-    if (currentOperationText.innerText === "") {
+    if (currentOperationText.innerText === "" && operation !== "C") {
       // change operation:
       if (previousOperationText.innerText !== "") {
         this.changeOperation(operation);
@@ -62,6 +62,9 @@ class Calculator {
         break;
       case "CE":
         this.processClearCurrentOperation();
+        break;
+      case "C":
+        this.processClearOperation();
         break;
       default:
         return;
@@ -110,6 +113,12 @@ class Calculator {
 
   // clear current operation
   processClearCurrentOperation() {
+    this.currentOperationText.innerText = "";
+  }
+
+  // clear all operations
+  processClearOperation() {
+    this.previousOperationText.innerText = "";
     this.currentOperationText.innerText = "";
   }
 }
