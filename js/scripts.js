@@ -66,6 +66,9 @@ class Calculator {
       case "C":
         this.processClearOperation();
         break;
+      case "=":
+        this.processEqualOperator();
+        break;
       default:
         return;
     }
@@ -120,6 +123,22 @@ class Calculator {
   processClearOperation() {
     this.previousOperationText.innerText = "";
     this.currentOperationText.innerText = "";
+  }
+
+  // process an operation
+  processEqualOperator() {
+    const operation = previousOperationText.innerText.split(" ")[1];
+    const previousNumber = +previousOperationText.innerText.split(" ")[0];
+    const currentNumber = +currentOperationText.innerText;
+
+    const processedFinalValue = `${previousNumber} ${operation} ${currentNumber}`;
+
+    this.currentOperationText.innerText = eval(processedFinalValue);
+
+    // clear previous number
+    this.previousOperationText.innerText = "";
+    // agora mando o sinal da operação para ser executada
+    // this.processOperations(operation);
   }
 }
 
