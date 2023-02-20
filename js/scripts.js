@@ -57,6 +57,9 @@ class Calculator {
         operationValue = previous / current;
         this.updateScreen(operationValue, operation, current, previous);
         break;
+      case "DEL":
+        this.processDelOperator();
+        break;
       default:
         return;
     }
@@ -94,6 +97,12 @@ class Calculator {
     // método slice para pegar e remover o último caractere - operador - e colocar um novo operador
     this.previousOperationText.innerText =
       this.previousOperationText.innerText.slice(0, -1) + operation;
+  }
+
+  // delete the last digit
+  processDelOperator() {
+    this.currentOperationText.innerText =
+      this.currentOperationText.innerText.slice(0, -1);
   }
 }
 
