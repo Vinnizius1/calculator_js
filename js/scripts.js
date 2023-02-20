@@ -26,6 +26,13 @@ class Calculator {
 
   // process all calculator operations
   processOperations(operation) {
+    // Check if current is empty
+    if (currentOperationText.innerText === "") {
+      if (previousOperationText.innerText !== "") {
+      }
+      return;
+    }
+
     let operationValue;
     const previous = +this.previousOperationText.innerText.split(" ")[0];
     const current = +this.currentOperationText.innerText;
@@ -33,6 +40,18 @@ class Calculator {
     switch (operation) {
       case "+":
         operationValue = previous + current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "-":
+        operationValue = previous - current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "*":
+        operationValue = previous * current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "/":
+        operationValue = previous / current;
         this.updateScreen(operationValue, operation, current, previous);
         break;
       default:
