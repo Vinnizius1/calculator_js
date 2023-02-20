@@ -82,6 +82,15 @@ class Calculator {
       this.currentOperationText.innerText = "";
     }
   }
+
+  // change math operations
+  changeOperation(operation) {
+    const mathOperations = ["+", "-", "/", "*"];
+
+    if (!mathOperations.includes(operation)) {
+      return;
+    }
+  }
 }
 
 /* Instância da classe */
