@@ -26,10 +26,13 @@ class Calculator {
 
   // process all calculator operations
   processOperations(operation) {
-    // Check if current is empty
+    // check if current is empty:
     if (currentOperationText.innerText === "") {
+      // change operation:
       if (previousOperationText.innerText !== "") {
+        this.changeOperation(operation);
       }
+      // este 'return' impedirá a mudança de operação quando não tiver nenhum número na tela
       return;
     }
 
