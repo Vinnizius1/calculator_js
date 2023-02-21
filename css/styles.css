@@ -36,7 +36,7 @@ body {
 
 #previous-operation,
 #current-operation {
-    min-height: 1.6em;
+    height: 1.6em;
     /* min-height serve para já esperar o texto com a formatação correta */
     overflow-wrap: break-word;
     padding: .2em;
