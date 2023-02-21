@@ -67,7 +67,7 @@ class Calculator {
         this.processClearOperation();
         break;
       case "=":
-        this.processEqualOperator();
+        this.processEqualOperator(previous, current);
         break;
       default:
         return;
@@ -126,20 +126,18 @@ class Calculator {
   }
 
   // process "final" operation
-  processEqualOperator() {
+  processEqualOperator(previous, current) {
     let finalValue;
     const operation = previousOperationText.innerText.split(" ")[1];
-    const previousNumber = +previousOperationText.innerText.split(" ")[0];
-    const currentNumber = +currentOperationText.innerText;
 
     if (operation === "+") {
-      finalValue = previousNumber + currentNumber;
+      finalValue = previous + current;
     } else if (operation === "-") {
-      finalValue = previousNumber - currentNumber;
+      finalValue = previous - current;
     } else if (operation === "*") {
-      finalValue = previousNumber * currentNumber;
+      finalValue = previous * current;
     } else {
-      finalValue = previousNumber / currentNumber;
+      finalValue = previous / current;
     }
 
     // set final value as 'current' value
