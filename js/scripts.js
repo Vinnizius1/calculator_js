@@ -27,9 +27,9 @@ class Calculator {
   // process all calculator operations
   processOperations(operation) {
     // check if current is empty:
-    if (currentOperationText.innerText === "" && operation !== "C") {
+    if (this.currentOperationText.innerText === "" && operation !== "C") {
       // change operation:
-      if (previousOperationText.innerText !== "") {
+      if (this.previousOperationText.innerText !== "") {
         this.changeOperation(operation);
       }
       // este 'return' impedirá a mudança de operação quando não tiver nenhum número na tela
@@ -142,7 +142,7 @@ class Calculator {
       finalValue = previousNumber / currentNumber;
     }
 
-    // set final value as 'current' value (final value)
+    // set final value as 'current' value
     this.currentOperationText.innerText = finalValue;
     // clear previous number
     this.previousOperationText.innerText = "";
