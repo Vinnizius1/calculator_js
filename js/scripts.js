@@ -152,7 +152,7 @@ class Calculator {
     // this.currentOperationText.innerText = eval(processedFinalValue);
     // this.previousOperationText.innerText = "";
 
-    /* Esta foi a maneira utilizada pelo professor Matheus, porém não curti como ficou o final */
+    /* Código final da aula: */
     // envio o "sinal da operação" como argumento para ser executado na função:
     // this.processOperations(operation);
   }
