@@ -125,19 +125,35 @@ class Calculator {
     this.currentOperationText.innerText = "";
   }
 
-  // process an operation
+  // process "final" operation
   processEqualOperator() {
+    let finalValue;
     const operation = previousOperationText.innerText.split(" ")[1];
     const previousNumber = +previousOperationText.innerText.split(" ")[0];
     const currentNumber = +currentOperationText.innerText;
 
-    const processedFinalValue = `${previousNumber} ${operation} ${currentNumber}`;
+    if (operation === "+") {
+      finalValue = previousNumber + currentNumber;
+    } else if (operation === "-") {
+      finalValue = previousNumber - currentNumber;
+    } else if (operation === "*") {
+      finalValue = previousNumber * currentNumber;
+    } else {
+      finalValue = previousNumber / currentNumber;
+    }
 
-    this.currentOperationText.innerText = eval(processedFinalValue);
-
+    // set final value as 'current' value (final value)
+    this.currentOperationText.innerText = finalValue;
     // clear previous number
     this.previousOperationText.innerText = "";
-    // agora mando o sinal da operação para ser executada
+
+    /* Utilizando o método EVAL é mais fácil, porém não é recomendado pela Documentação */
+    // const processedFinalValue = `${previousNumber} ${operation} ${currentNumber}`;
+    // this.currentOperationText.innerText = eval(processedFinalValue);
+    // this.previousOperationText.innerText = "";
+
+    /* Esta foi a maneira utilizada pelo professor Matheus, porém não curti como ficou o final */
+    // envio o "sinal da operação" como argumento para ser executado na função:
     // this.processOperations(operation);
   }
 }
