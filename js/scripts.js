@@ -162,9 +162,19 @@ const calc = new Calculator(previousOperationText, currentOperationText);
 /* Eventos no DOM para funcionamento da calculadora */
 buttons.forEach(btn => {
   btn.addEventListener("click", e => {
+    // Pega o valor específico do botão clicado
     const value = e.target.innerText;
 
-    if (+value >= 0 || value === ".") {
+    // Pega o valor da classe daquele botão clicado
+    const classNameOfClickedElement = e.target.classList[0];
+    const classListName = ["number"];
+
+    // Se o valor dessa classe for "number", esta variável retornará true
+    const hasNumberClass = classListName.some(
+      className => className === classNameOfClickedElement
+    );
+
+    if (hasNumberClass) {
       calc.addDigitToScreen(value);
     } else {
       calc.processOperations(value);
