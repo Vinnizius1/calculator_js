@@ -162,22 +162,25 @@ const calc = new Calculator(previousOperationText, currentOperationText);
 /* Eventos no DOM para funcionamento da calculadora */
 buttons.forEach(btn => {
   btn.addEventListener("click", e => {
-    // Pega o valor específico do botão clicado
-    const value = e.target.innerText;
+    const valueOfTheClick = e.target.innerText;
+    const classNumbers = [
+      ".",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+    ];
 
-    // Pega o valor da classe daquele botão clicado
-    const classNameOfClickedElement = e.target.classList[0];
-    const classListName = ["number"];
-
-    // Se o valor dessa classe for "number", esta variável retornará true
-    const hasNumberClass = classListName.some(
-      className => className === classNameOfClickedElement
-    );
-
-    if (hasNumberClass) {
-      calc.addDigitToScreen(value);
+    if (classNumbers.some(numberOrDot => numberOrDot === valueOfTheClick)) {
+      calc.addDigitToScreen(valueOfTheClick);
     } else {
-      calc.processOperations(value);
+      calc.processOperations(valueOfTheClick);
     }
   });
 });
